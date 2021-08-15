@@ -1,19 +1,19 @@
 import { useState } from "react";
 import classes from "./ToDoForm.module.css";
-const ToDoForm = () => {
-  const [todo, setTodo] = useState("");
+const ToDoForm = (props) => {
+  const [todo, setTodo] = useState("") ;
 
   const inputHandler = (event) => {
     setTodo(event.target.value);
   };
   const submitHandler = (event) => {
-    event.preventDefault()
-    const item={
-      value:todo,
-      id:Math.floor(Math.random()*100)
+    event.preventDefault();
+    if (!todo) {
+      alert("enter your todo");
+      return;
     }
-    console.log(item);
-    return item
+    props.add(todo);
+    setTodo("");
   };
   return (
     <div className={classes.ToDoForm}>
