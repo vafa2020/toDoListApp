@@ -10,12 +10,4 @@
 .App h1 {
   margin-bottom: 30px;
 }
-.Container {
-  display: flex;
-  justify-content: center;
-  width: 40rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 4px;
-}
+
