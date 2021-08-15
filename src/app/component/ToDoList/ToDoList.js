@@ -1,24 +1,14 @@
 import { useEffect, useState } from "react";
+import ToDo from "../ToDo/ToDo";
 import classes from "./ToDoList.module.css";
 const ToDoList = ({ todos }) => {
-  const [list, setList] = useState([]);
-  // useEffect(() => {
-  //   setList([...list, todos]);
-  // }, [list]);
+  if (todos.length === 0) {
+    return <div>Enter some todos</div>;
+  }
   return (
     <div className={classes.ToDoList}>
-      {todos.map((item) => (
-        <div className={classes.todo}>
-          <div>
-            <ul className={classes.items} key={item.id}>
-              <li className={classes.item}>{item.value}</li>
-            </ul>
-          </div>
-          <div>
-            <button>Edit</button>
-            <button>Complete</button>
-          </div>
-        </div>
+      {todos.map((todo) => (
+        <ToDo key={todo.id} todo={todo} />
       ))}
     </div>
   );

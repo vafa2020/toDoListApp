@@ -1,18 +1,8 @@
-.ToDoList{
-    margin-top: 10px;
+.ToDoList {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   background-color: blue;
-width: 500px;
-}
-.items{
-list-style: none;
-}
-
-.item{
-    
-}
-.todo{
-    display: flex;
-    justify-content: space-between;
+  padding: 10px;
+  width: 100%;
 }
