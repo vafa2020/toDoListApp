@@ -7,12 +7,19 @@ const ToDoList = ({ todos }) => {
   // }, [list]);
   return (
     <div className={classes.ToDoList}>
-      {list.map((item) => {
-        console.log(item);
-        <ul key={item.id}>
-          <li>item.value</li>
-        </ul>;
-      })}
+      {todos.map((item) => (
+        <div className={classes.todo}>
+          <div>
+            <ul className={classes.items} key={item.id}>
+              <li className={classes.item}>{item.value}</li>
+            </ul>
+          </div>
+          <div>
+            <button>Edit</button>
+            <button>Complete</button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
