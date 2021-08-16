@@ -4,7 +4,7 @@ import ToDoList from "../ToDoList/ToDoList";
 import classes from "./ToDoApp.module.css";
 const ToDoApp = () => {
   const [todos, setTodos] = useState([]);
-  const add = (todo) => {
+  const addTodo = (todo) => {
     const item = {
       value: todo,
       id: Math.floor(Math.random() * 1000),
@@ -22,8 +22,7 @@ const ToDoApp = () => {
   };
   const onEdit = (id) => {
     const getIndex = todos.findIndex((x) => x.id === id);
-    const getItem = {...todos[getIndex]};
-    
+    const getItem = { ...todos[getIndex] };
   };
   const deleteHandler = (id) => {
     //روش رایج
@@ -35,14 +34,23 @@ const ToDoApp = () => {
     // updateTodos.splice(getIndex,1)
     // setTodos(updateTodos)
   };
+  const updateTodo = (id, newTodo) => {
+    const index = todos.findIndex((x) => x.id === id);
+    const getItem = { ...todos[index] };
+    getItem.value = newTodo;
+    const updateTodos = [...todos];
+    updateTodos[index] = getItem;
+    setTodos(updateTodos);
+  };
   return (
     <div className={classes.Container}>
-      <ToDoForm add={add} />
+      <ToDoForm submitTodo={addTodo} />
       <ToDoList
         todos={todos}
         onComplete={onComplete}
         onEdit={onEdit}
         Delete={deleteHandler}
+        editTodo={updateTodo}
       />
     </div>
   );
