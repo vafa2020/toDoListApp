@@ -32,7 +32,7 @@ const ToDoForm = ({ submitTodo, edit }) => {
           className={classes.Input}
           ref={inputRef}
         />
-        <button className={classes.Button} type="submit">
+        <button className={`${classes.Button} ${edit?classes.updateButton:""}`} type="submit">
           {edit ? "Update" : "Add"}
         </button>
       </form>

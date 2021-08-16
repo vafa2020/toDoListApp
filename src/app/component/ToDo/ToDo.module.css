@@ -3,11 +3,11 @@
   justify-content: space-between;
   align-items: center;
   width: 20rem;
+  margin-top: 10px;
 }
 
 .Text {
   padding: 10px;
-  margin-top: 10px;
 }
 .Completed {
   text-decoration: line-through;
@@ -15,15 +15,15 @@
 }
 .Control {
   display: flex;
-  align-items: center;
+
 }
 .Edit {
   padding: 10px 5px;
   width: 80px;
   border-radius: 5px;
   background-color: transparent;
-  border: 2px solid blueviolet;
-  color: blueviolet;
+  border: 2px solid yellowgreen;
+  color: yellowgreen;
   margin-right: 5px;
   cursor: pointer;
   font-weight: bold;
