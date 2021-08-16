@@ -15,8 +15,11 @@
     
 }
 .Button{
+    color: #fff;
+    background-color: #6d28d9;
     width: 80px;
     padding: 10px;
-    border: none;
+    border: 1px solid #6d28d9;
     border-radius: 5px;
+    cursor: pointer;
 }
