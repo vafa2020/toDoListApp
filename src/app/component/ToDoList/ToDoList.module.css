@@ -1,7 +1,8 @@
 .ToDoList {
-  margin-top: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
   background-color: blue;
   padding: 10px;
   width: 100%;

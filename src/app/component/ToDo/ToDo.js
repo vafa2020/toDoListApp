@@ -1,12 +1,19 @@
-import { useEffect, useState } from "react";
 import classes from "./ToDo.module.css";
-const ToDo = ({ todo }) => {
+const ToDo = ({ todo, onComplete, onEdit,Delete }) => {
   return (
     <div className={classes.Todo}>
-      <div className={classes.Item}>{todo.value}</div>
+      <div
+         onClick={onComplete} className={`${classes.Text} ${todo.isComplete ? classes.Completed : ""}`}
+      >
+        {todo.value}
+      </div>
       <div className={classes.Control}>
-        <button className={classes.Edit}>Edit</button>
-        <button className={classes.Complete}>Complete</button>
+        <button onClick={onEdit} className={classes.Edit}>
+          Edit
+        </button>
+        <button onClick={Delete} className={classes.Complete}>
+          Delete
+        </button>
       </div>
     </div>
   );

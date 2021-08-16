@@ -1,18 +1,22 @@
-.Todo{
-  
+.Todo {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 10px;
 }
 
-.item{
-    padding: 10px;
-    margin-top: 10px;
+.Text {
+  padding: 10px;
+  margin-top: 10px;
 }
-.Control{
-display: flex;
+.Completed{
+  text-decoration: line-through;
+  color:#ccc;
 }
-.Edit{
+.Control {
+  display: flex;
+}
+.Edit {
   padding: 10px;
   width: 100px;
   border-radius: 5px;
@@ -21,7 +25,7 @@ display: flex;
   margin-right: 5px;
   cursor: pointer;
 }
-.Complete{
+.Complete {
   padding: 10px;
   width: 100px;
   border-radius: 5px;
