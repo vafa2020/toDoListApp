@@ -1,9 +1,12 @@
 import { useState } from "react";
+import Filter from "../Filter/Filter";
+import NavBar from "../NavBar/NavBar";
 import ToDoForm from "../ToDoForm/ToDoForm";
 import ToDoList from "../ToDoList/ToDoList";
 import classes from "./ToDoApp.module.css";
 const ToDoApp = () => {
   const [todos, setTodos] = useState([]);
+  const [filterTodo, setFilterTodo] = useState([]);
   const addTodo = (todo) => {
     const item = {
       value: todo,
@@ -42,8 +45,13 @@ const ToDoApp = () => {
     updateTodos[index] = getItem;
     setTodos(updateTodos);
   };
+  const filteredTodo=(value)=>{
+console.log(value);
+  }
   return (
     <div className={classes.Container}>
+      <NavBar unCompelete={todos.filter((t) => !t.isComplete).length} />
+      <Filter filteredTodo={filteredTodo} />
       <ToDoForm submitTodo={addTodo} />
       <ToDoList
         todos={todos}
