@@ -8,7 +8,7 @@ const ToDoApp = () => {
   const [todos, setTodos] = useState([]);
   const [filterTodo, setFilterTodo] = useState([]);
   const [status, setStatus] = useState("");
-  console.log(status);
+
   useEffect(() => {
     filteredTodo(status.value);
   }, [todos, status]);
@@ -50,8 +50,8 @@ const ToDoApp = () => {
     updateTodos[index] = getItem;
     setTodos(updateTodos);
   };
-  const filteredTodo = (value) => {
-    switch (value) {
+  const filteredTodo = (status) => {
+    switch (status) {
       case "All":
         setFilterTodo(todos);
         break;
@@ -68,7 +68,8 @@ const ToDoApp = () => {
     }
   };
   const selectHandler = (selectedOption) => {
-    // filteredTodo(status);
+    console.log(selectedOption);
+    filteredTodo(selectedOption.value);
     setStatus(selectedOption);
   };
   return (
