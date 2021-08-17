@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Select from "react-select";
 import classes from "./Filter.module.css";
 
@@ -7,17 +7,14 @@ const options = [
   { value: "Complete", label: "Complete" },
   { value: "UnComplete", label: "UnComplete" },
 ];
-const Filter = ({ filteredTodo }) => {
-  const [state, setState] = useState();
-  const handleChange = (selectedOption) => {
-    filteredTodo(selectedOption.value)
-    setState(selectedOption)
-  };
+const Filter = ({ status ,onChange}) => {
+
+
   return (
     <Select
       className={classes.select}
-      value={state}
-      onChange={handleChange}
+      value={status}
+      onChange={onChange}
       options={options}
     />
   );

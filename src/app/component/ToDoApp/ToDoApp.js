@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Filter from "../Filter/Filter";
 import NavBar from "../NavBar/NavBar";
 import ToDoForm from "../ToDoForm/ToDoForm";
@@ -7,6 +7,11 @@ import classes from "./ToDoApp.module.css";
 const ToDoApp = () => {
   const [todos, setTodos] = useState([]);
   const [filterTodo, setFilterTodo] = useState([]);
+  const [status, setStatus] = useState("");
+  console.log(status);
+  useEffect(() => {
+    filteredTodo(status.value);
+  }, [todos, status]);
   const addTodo = (todo) => {
     const item = {
       value: todo,
@@ -45,16 +50,34 @@ const ToDoApp = () => {
     updateTodos[index] = getItem;
     setTodos(updateTodos);
   };
-  const filteredTodo=(value)=>{
-console.log(value);
-  }
+  const filteredTodo = (value) => {
+    switch (value) {
+      case "All":
+        setFilterTodo(todos);
+        break;
+      case "Complete":
+        setFilterTodo(todos.filter((t) => t.isComplete));
+        break;
+      case "UnComplete":
+        setFilterTodo(todos.filter((t) => !t.isComplete));
+        break;
+
+      default:
+        setFilterTodo(todos);
+        break;
+    }
+  };
+  const selectHandler = (selectedOption) => {
+    // filteredTodo(status);
+    setStatus(selectedOption);
+  };
   return (
     <div className={classes.Container}>
       <NavBar unCompelete={todos.filter((t) => !t.isComplete).length} />
-      <Filter filteredTodo={filteredTodo} />
+      <Filter onChange={selectHandler} status={status} />
       <ToDoForm submitTodo={addTodo} />
       <ToDoList
-        todos={todos}
+        todos={filterTodo}
         onComplete={onComplete}
         onEdit={onEdit}
         Delete={deleteHandler}
